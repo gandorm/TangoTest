@@ -122,6 +122,10 @@ static const long kImagLen = 251;
 //  ulong64_scalar       |  Tango::DevULong64	Scalar
 //  ushort_scalar        |  Tango::DevUShort	Scalar
 //  ulong_scalar         |  Tango::DevULong	Scalar
+//  devenum_scalar_w     |  Tango::DevEnum	Scalar
+//  devenum_scalar       |  Tango::DevEnum	Scalar
+//  devenum_scalar_ro    |  Tango::DevEnum	Scalar
+//  devenum_scalar_rww   |  Tango::DevEnum	Scalar
 //  boolean_spectrum     |  Tango::DevBoolean	Spectrum  ( max = 4096)
 //  boolean_spectrum_ro  |  Tango::DevBoolean	Spectrum  ( max = 4096)
 //  double_spectrum      |  Tango::DevDouble	Spectrum  ( max = 4096)
@@ -142,6 +146,8 @@ static const long kImagLen = 251;
 //  ushort_spectrum      |  Tango::DevUShort	Spectrum  ( max = 4096)
 //  ushort_spectrum_ro   |  Tango::DevUShort	Spectrum  ( max = 4096)
 //  wave                 |  Tango::DevDouble	Spectrum  ( max = 4096)
+//  devenum_spectrum     |  Tango::DevEnum	Spectrum  ( max = 4096)
+//  devenum_spectrum_rw  |  Tango::DevEnum	Spectrum  ( max = 4096)
 //  boolean_image        |  Tango::DevBoolean	Image  ( max = 251 x 251)
 //  boolean_image_ro     |  Tango::DevBoolean	Image  ( max = 251 x 251)
 //  double_image         |  Tango::DevDouble	Image  ( max = 251 x 251)
@@ -161,6 +167,8 @@ static const long kImagLen = 251;
 //  ulong_image_ro       |  Tango::DevULong	Image  ( max = 251 x 251)
 //  ushort_image         |  Tango::DevUShort	Image  ( max = 251 x 251)
 //  ushort_image_ro      |  Tango::DevUShort	Image  ( max = 8192 x 8192)
+//  devenum_image_ro     |  Tango::DevEnum	Image  ( max = 251 x 251)
+//  devenum_image        |  Tango::DevEnum	Image  ( max = 251 x 251)
 //================================================================
 
 namespace TangoTest_ns
@@ -691,6 +699,10 @@ void TangoTest::init_device()
 	attr_ushort_scalar_read = new Tango::DevUShort;
 	*attr_ushort_scalar_read = 0;
 	attr_ushort_scalar_write = 0;
+
+	attr_devenum_scalar_read = new devenum_scalarEnum;
+	*attr_devenum_scalar_read = 0;
+	attr_devenum_scalar_write = 0;
 
   //- Spectrum
 	attr_short_spectrum_ro_read = new Tango::DevShort[kSpecLen];
@@ -1734,6 +1746,122 @@ void TangoTest::write_ulong_scalar(Tango::WAttribute &attr)
 }
 //--------------------------------------------------------
 /**
+ *	Write attribute devenum_scalar_w related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_scalar_wEnum)
+ *	Attr type:	Scalar
+ */
+//--------------------------------------------------------
+void TangoTest::write_devenum_scalar_w(Tango::WAttribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::write_devenum_scalar_w(Tango::WAttribute &attr) entering... " << endl;
+	//	Retrieve write value
+	devenum_scalar_wEnum	w_val;
+	attr.get_write_value(w_val);
+	/*----- PROTECTED REGION ID(TangoTest::write_devenum_scalar_w) ENABLED START -----*/
+  DEBUG_STREAM << "w_val = " << w_val << endl;
+	attr_devenum_ = w_val;
+
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::write_devenum_scalar_w
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_scalar related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_scalarEnum)
+ *	Attr type:	Scalar
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_scalar(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_scalar(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_scalar) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_scalar_read);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_scalar
+}
+//--------------------------------------------------------
+/**
+ *	Write attribute devenum_scalar related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_scalarEnum)
+ *	Attr type:	Scalar
+ */
+//--------------------------------------------------------
+void TangoTest::write_devenum_scalar(Tango::WAttribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::write_devenum_scalar(Tango::WAttribute &attr) entering... " << endl;
+	//	Retrieve write value
+	devenum_scalarEnum	w_val;
+	attr.get_write_value(w_val);
+	/*----- PROTECTED REGION ID(TangoTest::write_devenum_scalar) ENABLED START -----*/
+
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::write_devenum_scalar
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_scalar_ro related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_scalar_roEnum)
+ *	Attr type:	Scalar
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_scalar_ro(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_scalar_ro(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_scalar_ro) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_scalar_ro_read);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_scalar_ro
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_scalar_rww related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_scalar_rwwEnum)
+ *	Attr type:	Scalar
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_scalar_rww(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_scalar_rww(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_scalar_rww) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_scalar_rww_read);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_scalar_rww
+}
+//--------------------------------------------------------
+/**
+ *	Write attribute devenum_scalar_rww related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_scalar_rwwEnum)
+ *	Attr type:	Scalar
+ */
+//--------------------------------------------------------
+void TangoTest::write_devenum_scalar_rww(Tango::WAttribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::write_devenum_scalar_rww(Tango::WAttribute &attr) entering... " << endl;
+	//	Retrieve write value
+	devenum_scalar_rwwEnum	w_val;
+	attr.get_write_value(w_val);
+	/*----- PROTECTED REGION ID(TangoTest::write_devenum_scalar_rww) ENABLED START -----*/
+
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::write_devenum_scalar_rww
+}
+//--------------------------------------------------------
+/**
  *	Read attribute boolean_spectrum related method
  *	Description:
  *
@@ -2349,6 +2477,67 @@ void TangoTest::read_wave(Tango::Attribute &attr)
 	attr.set_value(attr_wave_read, kSpecLen);
 
 	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_wave
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_spectrum related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_spectrumEnum)
+ *	Attr type:	Spectrum max = 4096
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_spectrum(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_spectrum(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_spectrum) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_spectrum_read, 4096);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_spectrum
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_spectrum_rw related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_spectrum_rwEnum)
+ *	Attr type:	Spectrum max = 4096
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_spectrum_rw(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_spectrum_rw(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_spectrum_rw) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_spectrum_rw_read, 4096);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_spectrum_rw
+}
+//--------------------------------------------------------
+/**
+ *	Write attribute devenum_spectrum_rw related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_spectrum_rwEnum)
+ *	Attr type:	Spectrum max = 4096
+ */
+//--------------------------------------------------------
+void TangoTest::write_devenum_spectrum_rw(Tango::WAttribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::write_devenum_spectrum_rw(Tango::WAttribute &attr) entering... " << endl;
+	//	Retrieve number of write values
+	int	w_length = attr.get_write_value_length();
+
+	//	Retrieve pointer on write values (Do not delete !)
+	const short *w_val;
+	attr.get_write_value(w_val);
+	devenum_spectrum_rwEnum enum_val[w_length];
+	for (int i=0 ; i<w_length ; i++)  enum_val[i]=(devenum_spectrum_rwEnum) w_val[i];
+	/*----- PROTECTED REGION ID(TangoTest::write_devenum_spectrum_rw) ENABLED START -----*/
+
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::write_devenum_spectrum_rw
 }
 //--------------------------------------------------------
 /**
@@ -3001,6 +3190,67 @@ void TangoTest::read_ushort_image_ro(Tango::Attribute &attr)
 	if (mthreaded_impl != 0)
 		attr.set_user_attr_mutex(&ushort_image_lock);
 	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_ushort_image_ro
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_image_ro related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_image_roEnum)
+ *	Attr type:	Image max = 251 x 251
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_image_ro(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_image_ro(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_image_ro) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_image_ro_read, 251, 251);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_image_ro
+}
+//--------------------------------------------------------
+/**
+ *	Read attribute devenum_image related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_imageEnum)
+ *	Attr type:	Image max = 251 x 251
+ */
+//--------------------------------------------------------
+void TangoTest::read_devenum_image(Tango::Attribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::read_devenum_image(Tango::Attribute &attr) entering... " << endl;
+	/*----- PROTECTED REGION ID(TangoTest::read_devenum_image) ENABLED START -----*/
+	//	Set the attribute value
+	attr.set_value(attr_devenum_image_read, 251, 251);
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_devenum_image
+}
+//--------------------------------------------------------
+/**
+ *	Write attribute devenum_image related method
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum (devenum_imageEnum)
+ *	Attr type:	Image max = 251 x 251
+ */
+//--------------------------------------------------------
+void TangoTest::write_devenum_image(Tango::WAttribute &attr)
+{
+	DEBUG_STREAM << "TangoTest::write_devenum_image(Tango::WAttribute &attr) entering... " << endl;
+	//	Retrieve number of write values
+	int	w_length = attr.get_write_value_length();
+
+	//	Retrieve pointer on write values (Do not delete !)
+	const short *w_val;
+	attr.get_write_value(w_val);
+	devenum_imageEnum enum_val[w_length];
+	for (int i=0 ; i<w_length ; i++)  enum_val[i]=(devenum_imageEnum) w_val[i];
+	/*----- PROTECTED REGION ID(TangoTest::write_devenum_image) ENABLED START -----*/
+
+
+	/*----- PROTECTED REGION END -----*/	//	TangoTest::write_devenum_image
 }
 
 //--------------------------------------------------------
@@ -4011,6 +4261,9 @@ void TangoTest::gen_data ()
 
   *attr_float_scalar_read =
      randomize(attr_float_scalar_write);
+
+  *attr_devenum_scalar_read =
+     randomize(attr_devenum_scalar_write);
 
  	int i, j;
 

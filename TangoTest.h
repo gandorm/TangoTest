@@ -67,6 +67,70 @@
 
 namespace TangoTest_ns
 {
+enum _devenum_scalar_wEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_scalar_wEnum devenum_scalar_wEnum;
+
+enum _devenum_scalarEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_scalarEnum devenum_scalarEnum;
+
+enum _devenum_scalar_roEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_scalar_roEnum devenum_scalar_roEnum;
+
+enum _devenum_scalar_rwwEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_scalar_rwwEnum devenum_scalar_rwwEnum;
+
+enum _devenum_spectrumEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_spectrumEnum devenum_spectrumEnum;
+
+enum _devenum_spectrum_rwEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_spectrum_rwEnum devenum_spectrum_rwEnum;
+
+enum _devenum_image_roEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_image_roEnum devenum_image_roEnum;
+
+enum _devenum_imageEnum {
+	_A,
+	_B,
+	_C,
+	_D,
+} ;
+typedef _devenum_imageEnum devenum_imageEnum;
+
 /*----- PROTECTED REGION ID(TangoTest::Additional Class Declarations) ENABLED START -----*/
 
 //	Additional Class Declarations
@@ -98,6 +162,7 @@ public:
 	Tango::DevULong		attr_ulong_scalar_write;
 	Tango::DevUShort	attr_ushort_scalar_write;
 	Tango::DevUChar		attr_uchar_scalar_write;
+	devenum_scalarEnu attr_devenum_scalar_write;
 	Tango::DevDouble	attr_ampli_write;
 	Tango::DevLong64	attr_long64_scalar_write;
 	Tango::DevULong64	attr_ulong64_scalar_write;
@@ -105,8 +170,10 @@ public:
 	Tango::DevBoolean	attr_boolean_scalar_write;
 
 	Tango::DevString	attr_string_spectrum_write;
+	devenum_spectrumEnum attr_devenum_spectrum_write;
 
 	Tango::DevString	attr_string_image_write;
+	devenum_imageEnum attr_devenum_image_write;
 
     string              pi_str;
     Tango::DevLong      pi_long;
@@ -142,6 +209,9 @@ public:
 	Tango::DevULong64	*attr_ulong64_scalar_read;
 	Tango::DevUShort	*attr_ushort_scalar_read;
 	Tango::DevULong	*attr_ulong_scalar_read;
+	devenum_scalarEnum	*attr_devenum_scalar_read;
+	devenum_scalar_roEnum	*attr_devenum_scalar_ro_read;
+	devenum_scalar_rwwEnum	*attr_devenum_scalar_rww_read;
 	Tango::DevBoolean	*attr_boolean_spectrum_read;
 	Tango::DevBoolean	*attr_boolean_spectrum_ro_read;
 	Tango::DevDouble	*attr_double_spectrum_read;
@@ -162,6 +232,8 @@ public:
 	Tango::DevUShort	*attr_ushort_spectrum_read;
 	Tango::DevUShort	*attr_ushort_spectrum_ro_read;
 	Tango::DevDouble	*attr_wave_read;
+	devenum_spectrumEnum	*attr_devenum_spectrum_read;
+	devenum_spectrum_rwEnum	*attr_devenum_spectrum_rw_read;
 	Tango::DevBoolean	*attr_boolean_image_read;
 	Tango::DevBoolean	*attr_boolean_image_ro_read;
 	Tango::DevDouble	*attr_double_image_read;
@@ -181,6 +253,8 @@ public:
 	Tango::DevULong	*attr_ulong_image_ro_read;
 	Tango::DevUShort	*attr_ushort_image_read;
 	Tango::DevUShort	*attr_ushort_image_ro_read;
+	devenum_image_roEnum	*attr_devenum_image_ro_read;
+	devenum_imageEnum	*attr_devenum_image_read;
 
 //	Constructors and destructors
 public:
@@ -453,6 +527,44 @@ public:
 	virtual void write_ulong_scalar(Tango::WAttribute &attr);
 	virtual bool is_ulong_scalar_allowed(Tango::AttReqType type);
 /**
+ *	Attribute devenum_scalar_w related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Scalar
+ */
+	virtual void write_devenum_scalar_w(Tango::WAttribute &attr);
+	virtual bool is_devenum_scalar_w_allowed(Tango::AttReqType type);
+/**
+ *	Attribute devenum_scalar related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Scalar
+ */
+	virtual void read_devenum_scalar(Tango::Attribute &attr);
+	virtual void write_devenum_scalar(Tango::WAttribute &attr);
+	virtual bool is_devenum_scalar_allowed(Tango::AttReqType type);
+/**
+ *	Attribute devenum_scalar_ro related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Scalar
+ */
+	virtual void read_devenum_scalar_ro(Tango::Attribute &attr);
+	virtual bool is_devenum_scalar_ro_allowed(Tango::AttReqType type);
+/**
+ *	Attribute devenum_scalar_rww related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Scalar
+ */
+	virtual void read_devenum_scalar_rww(Tango::Attribute &attr);
+	virtual void write_devenum_scalar_rww(Tango::WAttribute &attr);
+	virtual bool is_devenum_scalar_rww_allowed(Tango::AttReqType type);
+/**
  *	Attribute boolean_spectrum related methods
  *	Description:
  *
@@ -641,6 +753,25 @@ public:
 	virtual void read_wave(Tango::Attribute &attr);
 	virtual bool is_wave_allowed(Tango::AttReqType type);
 /**
+ *	Attribute devenum_spectrum related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Spectrum max = 4096
+ */
+	virtual void read_devenum_spectrum(Tango::Attribute &attr);
+	virtual bool is_devenum_spectrum_allowed(Tango::AttReqType type);
+/**
+ *	Attribute devenum_spectrum_rw related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Spectrum max = 4096
+ */
+	virtual void read_devenum_spectrum_rw(Tango::Attribute &attr);
+	virtual void write_devenum_spectrum_rw(Tango::WAttribute &attr);
+	virtual bool is_devenum_spectrum_rw_allowed(Tango::AttReqType type);
+/**
  *	Attribute boolean_image related methods
  *	Description:
  *
@@ -819,6 +950,25 @@ public:
  */
 	virtual void read_ushort_image_ro(Tango::Attribute &attr);
 	virtual bool is_ushort_image_ro_allowed(Tango::AttReqType type);
+/**
+ *	Attribute devenum_image_ro related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Image max = 251 x 251
+ */
+	virtual void read_devenum_image_ro(Tango::Attribute &attr);
+	virtual bool is_devenum_image_ro_allowed(Tango::AttReqType type);
+/**
+ *	Attribute devenum_image related methods
+ *	Description:
+ *
+ *	Data type:	Tango::DevEnum
+ *	Attr type:	Image max = 251 x 251
+ */
+	virtual void read_devenum_image(Tango::Attribute &attr);
+	virtual void write_devenum_image(Tango::WAttribute &attr);
+	virtual bool is_devenum_image_allowed(Tango::AttReqType type);
 
 
 	//--------------------------------------------------------
