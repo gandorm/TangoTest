@@ -1050,7 +1050,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	long64_scalar->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(long64_scalar);
+	att_list.push_back(long64_scalar);
 
 	//	Attribute : long_scalar
 	long_scalarAttrib	*long_scalar = new long_scalarAttrib();
@@ -2106,7 +2106,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	boolean_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(boolean_image_ro);
+	att_list.push_back(boolean_image_ro);
 
 	//	Attribute : double_image
 	double_imageAttrib	*double_image = new double_imageAttrib();
@@ -2154,7 +2154,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	double_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(double_image_ro);
+	att_list.push_back(double_image_ro);
 
 	//	Attribute : float_image
 	float_imageAttrib	*float_image = new float_imageAttrib();
@@ -2202,7 +2202,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	float_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(float_image_ro);
+	att_list.push_back(float_image_ro);
 
 	//	Attribute : long64_image_ro
 	long64_image_roAttrib	*long64_image_ro = new long64_image_roAttrib();
@@ -2226,7 +2226,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	long64_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(long64_image_ro);
+	att_list.push_back(long64_image_ro);
 
 	//	Attribute : long_image
 	long_imageAttrib	*long_image = new long_imageAttrib();
@@ -2274,7 +2274,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	long_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(long_image_ro);
+	att_list.push_back(long_image_ro);
 
 	//	Attribute : short_image
 	short_imageAttrib	*short_image = new short_imageAttrib();
@@ -2322,7 +2322,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	short_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(short_image_ro);
+	att_list.push_back(short_image_ro);
 
 	//	Attribute : string_image
 	string_imageAttrib	*string_image = new string_imageAttrib();
@@ -2346,7 +2346,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	string_image->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(string_image);
+	att_list.push_back(string_image);
 
 	//	Attribute : string_image_ro
 	string_image_roAttrib	*string_image_ro = new string_image_roAttrib();
@@ -2370,7 +2370,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	string_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(string_image_ro);
+	att_list.push_back(string_image_ro);
 
 	//	Attribute : uchar_image
 	uchar_imageAttrib	*uchar_image = new uchar_imageAttrib();
@@ -2418,7 +2418,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	uchar_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(uchar_image_ro);
+	att_list.push_back(uchar_image_ro);
 
 	//	Attribute : ulong64_image_ro
 	ulong64_image_roAttrib	*ulong64_image_ro = new ulong64_image_roAttrib();
@@ -2442,7 +2442,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	ulong64_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(ulong64_image_ro);
+	att_list.push_back(ulong64_image_ro);
 
 	//	Attribute : ulong_image_ro
 	ulong_image_roAttrib	*ulong_image_ro = new ulong_image_roAttrib();
@@ -2466,7 +2466,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	ulong_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(ulong_image_ro);
+	att_list.push_back(ulong_image_ro);
 
 	//	Attribute : ushort_image
 	ushort_imageAttrib	*ushort_image = new ushort_imageAttrib();
@@ -2514,7 +2514,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	ushort_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(ushort_image_ro);
+	att_list.push_back(ushort_image_ro);
 
 	//	Attribute : devenum_image_ro
 	devenum_image_roAttrib	*devenum_image_ro = new devenum_image_roAttrib();
