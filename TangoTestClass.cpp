@@ -1450,7 +1450,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_scalar->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	//att_list.push_back(devenum_scalar);
+	att_list.push_back(devenum_scalar);
 
 	//	Attribute : devenum_scalar_ro
 	devenum_scalar_roAttrib	*devenum_scalar_ro = new devenum_scalar_roAttrib();
