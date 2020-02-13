@@ -1418,7 +1418,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_scalar_w->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_scalar_w);
+	//att_list.push_back(devenum_scalar_w);
 
 	//	Attribute : devenum_scalar
 	devenum_scalarAttrib	*devenum_scalar = new devenum_scalarAttrib();
@@ -1450,7 +1450,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_scalar->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_scalar);
+	//att_list.push_back(devenum_scalar);
 
 	//	Attribute : devenum_scalar_ro
 	devenum_scalar_roAttrib	*devenum_scalar_ro = new devenum_scalar_roAttrib();
@@ -1482,7 +1482,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_scalar_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_scalar_ro);
+	//att_list.push_back(devenum_scalar_ro);
 
 	//	Attribute : devenum_scalar_rww
 	devenum_scalar_rwwAttrib	*devenum_scalar_rww = new devenum_scalar_rwwAttrib();
@@ -1514,7 +1514,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_scalar_rww->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_scalar_rww);
+	//att_list.push_back(devenum_scalar_rww);
 
 	//	Attribute : boolean_spectrum
 	boolean_spectrumAttrib	*boolean_spectrum = new boolean_spectrumAttrib();
