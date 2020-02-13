@@ -220,7 +220,7 @@ public:
         omni_mutex_lock guard(dev_.lock);
         if (! go_on_) break;
         DEBUG_STREAM << "DataGenerator::generating data" << endl;
-        dev_.gen_data();
+        //dev_.gen_data();
       } //- leave critical section
       sleep(0, sleep_time_ * 1000000);
     }
@@ -1068,7 +1068,7 @@ void TangoTest::read_attr_hardware(TANGO_UNUSED(vector<long> &attr_list))
 
   // Generate data for all attributes
   if (mthreaded_impl == 0) {
- 	  gen_data();
+ 	  //gen_data();
   }
 
 	/*----- PROTECTED REGION END -----*/	//	TangoTest::read_attr_hardware
@@ -4193,13 +4193,7 @@ void TangoTest::add_dynamic_commands()
 //=============================================================================
 template<typename T> inline T randomize (T max)
 {
-  if (max > 1)
-  {
-    int r = ::rand();
-	  r = r < 0 ? -r : r;
-	  return static_cast<T>(r % static_cast<int>(max));
-  }
-  return 0;
+  return max;
 }
 //=============================================================================
 // Standalone template function: generates a random image
