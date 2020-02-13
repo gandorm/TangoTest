@@ -2026,7 +2026,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_spectrum_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_spectrum_ro);
+	//att_list.push_back(devenum_spectrum_ro);
 
 	//	Attribute : devenum_spectrum
 	devenum_spectrumAttrib	*devenum_spectrum = new devenum_spectrumAttrib();
@@ -2058,7 +2058,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_spectrum->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_spectrum);
+	//att_list.push_back(devenum_spectrum);
 
 	//	Attribute : boolean_image
 	boolean_imageAttrib	*boolean_image = new boolean_imageAttrib();
