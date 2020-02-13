@@ -2546,7 +2546,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_image_ro->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_image_ro);
+	//att_list.push_back(devenum_image_ro);
 
 	//	Attribute : devenum_image
 	devenum_imageAttrib	*devenum_image = new devenum_imageAttrib();
@@ -2578,7 +2578,7 @@ void TangoTestClass::attribute_factory(vector<Tango::Attr *> &att_list)
 	//	Not Polled
 	devenum_image->set_disp_level(Tango::OPERATOR);
 	//	Not Memorized
-	att_list.push_back(devenum_image);
+	//att_list.push_back(devenum_image);
 
 
 	//	Create a list of static attributes
